@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-color: #424f4d;
+        }
+        
+        /* utitity classes */
+        .container{
+            max-width: 1080px;
+            /* border:1px solid red; */
+            margin-inline: auto;
+            padding-inline: 20px; 
+        
+        }
+        .flex{
+            display: flex;
+        }
+        .primary-button{
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #e2dfdf;
+            border: 2px solid #999;
+            padding-inline: 20px;
+            padding-block: 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 1px white;
+            transition: 0.2s ease-in ;
+        }
+        .primary-button:hover{
+            color: #2294ed;
+            border-color: #2294ed;
+        }
+        
+        .secondary-button{
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #222;
+            padding-inline: 22px;
+            padding-block: 12px;
+            border-radius: 6px;
+            box-shadow: 0 0 1px white;
+            background-color: #2294ed;
+            color: white;
+            font-weight: 700;
+            transition: 0.2s ease-in;
+        }
+        .secondary-button:hover{
+            background-color: #196097;
+        }
+        
+        /* nav-bar */
+        .main-nav{
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+          
+            height: 10vh;
+        }
+        .nav-logo{
+          font-size: 2rem;
+          font-weight: 900;
+          color: #73c7b4;
+        }
+        .nav-links ul{
+        gap: 40px;
+        list-style: none;
+        }
+        
+        /* generate-url-section */
+        .generate-url-container{
+          
+            height: 30vh;
+            margin-top: 60px;
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            /* border: 1px solid red; */
+            background-color: #323e3c;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.105);
+            
+            
+        }
+        .originalUrl-container{
+            height: 6vh;
+            width: 20vw;
+            text-align: center;
+            font-size: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 0 4px white;
+            border-color: transparent;
+        }
+        .generate-button{
+            border: 2px solid transparent;
+            margin-inline: 10px;
+        }
+        .generated-url-container{
+          
+            width: 40vw;
+            padding: 10px;
+            align-items: center;
+            /* justify-content: space-around; */
+        
+        }
+        .generated-url-container span{
+            color: rgb(224, 220, 220);
+            font-size: 1.2rem;
+          
+            /* padding: 10px; */
+            padding-inline-start: 65px;
+        }
+        .generated-url{
+            margin: 5px;
+            padding: 10px;
+            font-size:1.2rem ;
+         
+            color: #9bcaee;
+        }
+        
+        /* table */
+        .table-container{
+            /* border:1px solid red; */
+            padding: 10px;
+            color: #e2dfdf;
+            background-color: #323e3c;
+            margin-top: 40px;
+            
+        }
+         .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            width: 100%;
+            
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        } 
+            
+        
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        } 
+        
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+        
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        
+        
+        
+        .content-table tbody tr{
+            border-bottom: 2px solid #009879;
+        }
+        
+        .content-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+        .scroll{
+            width: 40%;
+            }
+    </style>
+</head>
+<body>
+    <!-- nav-bar -->
+   <nav>
+    <div class="container main-nav flex">
+        <div class="nav-logo">Short Url Service</div>
+        <div class="nav-links">
+        <ul class="flex ">
+          <li><a href="/signup" class="hover-link primary-button">SignUp</a></li>
+          <li><a href="/login" class="hover-link secondary-button">Login</a></li>
+        </ul>
+        </div>
+
+      
+    </div>
+   </nav>
+   <!-- generate-url-section -->
+
+<div class="container generate-url-container flex">
+    <div class="form flex">
+    <form action="/url" method="post" >
+        <input type="text" name="originalUrl" class="originalUrl-container" placeholder="Original Url">
+        <input type="submit" value="Generate" class="generate-button secondary-button">
+    </form>
+    </div>
+    <% if (locals.id) { %>
+        <div class="generated-url-container flex">
+            <span>Short Url: localhaot:8000/url/<%=id%></span>
+            <div class="generated-url"></div>
+     
+    <% } %>
+    </div>
+</div>
+
+<!-- table  -->
+ <div class="container table-container">
+<table class="content-table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th class="scroll">Original Url</th>
+        <th>Short Url</th>
+        <th>Clicks</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if (locals.urlArry) { %>
+    <% urlArry.forEach((url,index) => { %>
+        <tr>
+        <td><%=index+1%></td>
+        <td ><%=url.originalUrl%></td>
+        <td><%=url.shortId%></td>
+        <td>none</td>
+    </tr>
+    <% }) %>   
+</tbody>
+<% } %>
+</table>
+        
+  
+</div>
+   
+    
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <style>
+        *{ margin: 0px;
+    padding: 0px;
+    box-sizing: border-box 
+} 
+body{
+    font-family: sans-serif;
+}
+.outer-box{
+    width: 100vw; 
+    height: 100vh;
+    background: linear-gradient(to top left, rgba(255, 0, 0, 0.708),rgba(0, 0, 255, 0.833));
+}
+.inner-box{
+    
+    margin: auto;
+    width: 400px;
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+    /* background-color: rgb(236, 242, 245); */
+    background: linear-gradient(to top left ,#ffffff,#ffffffcc);
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px #212121;
+    
+} 
+.signup-header h1{
+
+    text-align: center;
+    font-size: 2.5rem;
+    color: #212121;
+
+}
+
+.main-content{
+    margin: 20px 0;
+}
+.main-content p{
+    margin: 10px 0;
+}
+.main-content p label{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.main-content p input{
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem ;
+
+}
+.main-content p input[type='submit']{
+    
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 10px;
+    /* background: linear-gradient(to top left,rgba(51, 0, 255, 0.574),rgba(255, 0, 0, 0.448)); */
+}
+
+.main-content p input[type='submit']:hover{
+    background-color: #d7d6d6;
+    cursor: pointer;
+}
+footer p{
+    font-size: 1.2rem;
+    text-align: center;
+    color: #555;
+    
+}
+footer p a{
+    text-decoration: none;
+    
+}
+    </style>
+    
+</head>
+<body>
+    <div class="outer-box">
+    <div class="inner-box">
+        <header class="signup-header">
+            
+            <h1>Login</h1>
+        </header>
+        <main class="main-content">
+         <form action="/user/login" method="POST">
+        <p>
+            <label for="email">Email</label>
+            <input type="text"  id="email" name="email">
+         </p>
+         <p>
+            <label for="password">Password</label>
+            <input type="text"  id="password" name="password">
+         </p>
+        <p>
+         <input type="submit" value="Login">
+        </p>
+        </form>
+        </main>
+        
+
+    </div>
+</div>
+</body>
+</html>
