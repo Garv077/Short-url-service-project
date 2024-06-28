@@ -5,14 +5,18 @@ import {nanoid} from "nanoid";
 
 async function handleGenerateUrl(req,res){
        const body = req.body;
+       const {email}= req.user; 
+       const user =await User.findOne({email})
+       console.log(user)
+
        const shortId = nanoid(8);
        await Url.create({
         originalUrl: body.originalUrl,
         shortId:shortId,
-        createdby: req.user._id,
+        createdby:user._id ,
       })
 
-      const urls = await Url.find({createdby:req.user._id})
+      const urls = await Url.find({createdby:user._id})
       res.render("home",{id:shortId,urlArry:urls})
       }
 

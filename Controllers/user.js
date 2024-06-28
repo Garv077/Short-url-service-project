@@ -3,10 +3,9 @@ import User from "../Models/user.js";
 import jwt from "jsonwebtoken"
 const secretKey = "axkjd128j"
 
-
-
 async function handleUserSignIn(req,res){
-      const {username,email,password} = req.body;
+  try {
+    const {username,email,password} = req.body;
       if(!username || !email || !password)return res.end("Invalid data")
       await User.create({
         username:username,
@@ -19,9 +18,12 @@ async function handleUserSignIn(req,res){
        "email":user.email
       },secretKey)
       console.log("token",token)
-   
       res.cookie('uid',token)
-      res.render("home")                        
+      res.render("home",{user:user})
+  } catch (error) {
+    if(error){return res.end(`<h1>${error}</h1>`)}
+  }
+                              
     }
 async function handleUserLogin(req,res){
   const {email,password} = req.body;

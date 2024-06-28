@@ -190,10 +190,15 @@
     <div class="container main-nav flex">
         <div class="nav-logo">Short Url Service</div>
         <div class="nav-links">
-        <ul class="flex ">
-          <li><a href="/signup" class="hover-link primary-button">SignUp</a></li>
-          <li><a href="/login" class="hover-link secondary-button">Login</a></li>
-        </ul>
+            <% if (!locals.user) { %>
+                <ul class="flex ">
+                    <li><a href="/signup" class="hover-link primary-button">SignUp</a></li>
+                    <li><a href="/login" class="hover-link secondary-button">Login</a></li>
+                  </ul>
+            <% } %>
+            
+            
+        
         </div>
 
       
