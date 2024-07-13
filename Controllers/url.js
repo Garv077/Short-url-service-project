@@ -1,5 +1,5 @@
 
-import User from "../Models/user.js"
+import User from "../Models/user.js"; 
 import Url from "../Models/ulr.js";
 import {nanoid} from "nanoid";
 
@@ -7,8 +7,6 @@ async function handleGenerateUrl(req,res){
        const body = req.body;
        const {email}= req.user; 
        const user =await User.findOne({email})
-       console.log(user)
-
        const shortId = nanoid(8);
        await Url.create({
         originalUrl: body.originalUrl,

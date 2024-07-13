@@ -3,7 +3,7 @@ import staticRouter from "./Routes/staticRoutes.js"
 import userRouter from "./Routes/user.js";
 import urlRouter from "./Routes/url.js";
 import {handleDbConnection} from "./dbConnection.js"
-import {handleRestrictUserLogin} from "./middlewares/auth.js"
+import {handleRestrictUserLogin,checkAuth} from "./middlewares/auth.js"
 import cookieParser from "cookie-parser";
 import path from "path";
 const dbUrl="mongodb://localhost:27017/new-url-shortner-stateless"
@@ -24,7 +24,7 @@ app.use(cookieParser())
 
 //Routes
 //static routes
-app.use("/",staticRouter)
+app.use("/",checkAuth,staticRouter)
 app.use("/user",staticRouter)
 
 //user routes
@@ -34,7 +34,7 @@ app.use("/user",userRouter)
 app.use("/url",handleRestrictUserLogin,urlRouter)
 
 
-app.listen(port,()=>{console.log("server started")})
+app.listen(port,()=>{console.log(`server started at http://localhost:${port}`)})
 
 
 

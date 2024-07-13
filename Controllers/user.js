@@ -17,7 +17,7 @@ async function handleUserSignIn(req,res){
         {"name":user.username,
        "email":user.email
       },secretKey)
-      console.log("token",token)
+     
       res.cookie('uid',token)
       res.render("home",{user:user})
   } catch (error) {
@@ -34,7 +34,7 @@ async function handleUserLogin(req,res){
         {"name":user.username,
        "email":user.email
       },secretKey)
-      console.log("token",token)
+      
    
       res.cookie('uid',token)
       res.redirect("/");
